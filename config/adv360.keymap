@@ -26,6 +26,13 @@
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
+      sym_num: symbol_number {
+                compatible = "zmk,behavior-mod-morph";
+                label = "SYMBOL_NUMBER";
+                #binding-cells = <2>;
+                bindings = <&kp>, <&kp>;
+                mods = <(MOD_LSFT|MOD_RSFT)>;
+            };
     };
 
   keymap {
@@ -67,5 +74,14 @@
         &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
       >;
     };
+    programming {
+        bindings = <
+        &sym_num GRAVE TILDE &sym_num STAR N1 &sym_num LBKT N2 &sym_num LBRC N3 &sym_num LPAR N4 &sym_num HASH N5 &tog 1                                                           &mo 3 &sym_num CARET N6 &sym_num RPAR N7 &sym_num RBRC N8 &sym_num RBKT N9 &sym_num DLLR N0 &sym_num MINUS UNDER
+        &kp TAB              &kp Q            &kp W            &kp E            &kp R            &kp T            &none                                                            &none &kp Y             &kp U            &kp I            &kp O            &kp P            &sym_num AMPS PRCNT
+        &kp ESC              &hm LCTRL A      &hm LALT S      &hm LGUI D      &hm LSHFT F      &kp G            &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H             &hm RSHFT J      &hm RGUI K       &hm RALT L       &hm RCTRL SEMI   &sym_num SQT DQT
+        &kp LSHFT            &kp Z            &kp X           &kp C           &kp V            &kp B                                      &kp HOME &kp PG_UP                           &kp N             &kp M            &sym_num COMMA LT &sym_num DOT GT  &sym_num FSLH QMARK &sym_num BSLH PIPE
+        &mo 2                &kp GRAVE        &kp CAPS        &kp LEFT        &kp RIGHT                          &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP           &kp DOWN         &kp LBKT         &kp RBKT         &mo 2
+    >;
+};
   };
 };
